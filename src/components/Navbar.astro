@@ -1,29 +1,64 @@
 <header
-  class="min-h-[60px] bg-neutral-100 flex items-center justify-center px-2 fixed w-full z-10 border-b"
+  class="min-h-[60px] bg-neutral-100 flex items-center justify-center fixed w-full z-20 border-b"
 >
-  <div class="flex justify-between items-center max-w-5xl mx-auto w-full">
+  <div
+    class="flex justify-between items-center max-w-5xl mx-auto w-full px-4 md:px-0"
+  >
     <div class="flex justify-between items-center">
       <img src="/images/logo-caf.svg" alt="" />
     </div>
-    <nav class="flex items-center gap-x-2">
-      <a href="" class="uppercase text-xs font-bold tracking-widest p-2">
-        inicio
+
+    <!--Burguer Menu-->
+    <input type="checkbox" id="check" />
+
+    <label for="check" class="text-neutral-800 text-4xl float-right md:hidden">
+      <i class="ri-more-line"></i>
+    </label>
+
+    <nav class="navigator__wrapper gap-4 bg-neutral-100">
+      <a href="" class="uppercase text-sm tracking-widest p-2"> Inicio</a>
+      <a href="" class="uppercase text-sm tracking-widest p-2">
+        Quienes somos
       </a>
-      <a href="" class="uppercase text-xs font-bold tracking-widest p-2">
-        quienes somos
-      </a>
-      <a href="" class="uppercase text-xs font-bold tracking-widest p-2">
-        actividades
-      </a>
-      <a href="" class="uppercase text-xs font-bold tracking-widest p-2">
-        contacto
-      </a>
+      <a href="" class="uppercase text-sm tracking-widest p-2"> Actividades</a>
+      <a href="" class="uppercase text-sm tracking-widest p-2"> Contacto</a>
       <a
         href=""
-        class="bg-neutral-800 rounded-lg text-white uppercase text-xs font-bold tracking-widest p-2"
+        class="bg-neutral-800 rounded-lg text-white uppercase text-sm tracking-widest px-6 py-2"
       >
-        predicas</a
-      >
+        Predicas
+      </a>
     </nav>
   </div>
 </header>
+
+<style>
+  #check {
+    display: none;
+  }
+  .navigator__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .navigator__wrapper {
+      position: fixed;
+      flex-direction: column;
+      top: -100%;
+      left: 0;
+      text-align: center;
+      z-index: -10;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease-in-out;
+      height: 60vh;
+      width: 100%;
+    }
+    #check:checked ~ nav {
+      top: 0;
+    }
+  }
+</style>
